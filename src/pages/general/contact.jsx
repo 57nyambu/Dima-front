@@ -24,9 +24,9 @@ const Contact = () => {
         {/* Left Side - Contact Details */}
         <div className="contact-info">
           <h2>Contact Us</h2>
-          <p><strong>Phone:</strong> +254 712 345 678</p>
+          <p><strong>Phone:</strong> +254 740 620 057</p>
           <p><strong>Email:</strong> support@dima.com</p>
-          <p><strong>Address:</strong> 123 Dima Street, Nairobi, Kenya</p>
+          <p><strong>Address:</strong> 22349-00400, Nairobi</p>
 
           {/* Social Media Links */}
           <div className="social-links">

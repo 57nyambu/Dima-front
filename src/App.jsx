@@ -21,6 +21,9 @@ import ProductDetails from "./pages/products/productdetails";
 import SearchResults from "./pages/products/searchresults";
 import Cart from "./pages/products/cart";
 import Checkout from "./pages/products/checkout";
+import OrderSummary from "./pages/products/order-summary";
+import PaymentForm from "./pages/products/paymentform";
+import ShippingForm from "./pages/products/shipping";
 
 // User Account Pages (Protected)
 import Dashboard from "./pages/accounts/dashboard";
@@ -55,6 +58,14 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/product-category" element={<ProductCategoryForm />} />
+          <Route path="/shipping" element={<ShippingForm />} />
+          <Route path="/payment" element={<PaymentForm />} />
+          <Route path="/order-summary" element={<OrderSummary />} />
+          <Route path="/products/cart" element={<Cart />} />
+          <Route path="/products/checkout" element={<Checkout />} />
+          <Route path="/products/payment" element={<PaymentForm />} />
+          <Route path="/products/shipping" element={<ShippingForm />} />
+          <Route path="/products/order-summary" element={<OrderSummary />} />
 
           {/* User Protected Routes */}
           <Route element={<ProtectedRoute />}>

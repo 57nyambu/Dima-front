@@ -18,12 +18,26 @@ const Landing = () => {
     navigate("/");
   };
 
+  const handleAddToCart = (product) => {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const existingItem = cartItems.find((item) => item.id === product.id);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cartItems.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    alert(`${product.name} has been added to the cart.`);
+  };
+
   // Sample featured products data - diversified for general e-commerce
   const featuredProducts = [
-    { id: 1, name: "Smart 4K TV", price: 499.99, image: "/api/placeholder/250/200" },
-    { id: 2, name: "Modern Coffee Table", price: 199.99, image: "/api/placeholder/250/200" },
-    { id: 3, name: "Wireless Headphones", price: 89.99, image: "/api/placeholder/250/200" },
-    { id: 4, name: "Kitchen Blender Set", price: 69.99, image: "/api/placeholder/250/200" }
+    { id: 1, name: "Smart 4K TV", price: 69999, image: "/api/placeholder/250/200" },
+    { id: 2, name: "Modern Coffee Table", price: 24999, image: "/api/placeholder/250/200" },
+    { id: 3, name: "Wireless Headphones", price: 11999, image: "/api/placeholder/250/200" },
+    { id: 4, name: "Kitchen Blender Set", price: 8999, image: "/api/placeholder/250/200" }
   ];
 
   // Sample categories for general e-commerce
@@ -42,7 +56,7 @@ const Landing = () => {
       <section className="hero-section">
         <div className="hero-content">
           <h1>Everything You Need, All in One Place</h1>
-          <p>Discover amazing products with great prices and fast delivery</p>
+          <p>Discover amazing products with great prices and fast delivery across Kenya</p>
           <div className="hero-buttons">
             <Link to="/products" className="primary-button">Shop Now</Link>
             <Link to="/deals" className="secondary-button">Today's Deals</Link>
@@ -78,8 +92,13 @@ const Landing = () => {
                 </div>
                 <div className="product-info">
                   <h3>{product.name}</h3>
-                  <p className="product-price">${product.price}</p>
-                  <button className="product-button">Add to Cart</button>
+                  <p className="product-price">KES {product.price.toLocaleString()}</p>
+                  <button 
+                    className="product-button" 
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             ))}
@@ -111,7 +130,7 @@ const Landing = () => {
           <div className="about-content">
             <div className="about-text">
               <h2 className="section-title">About Dima</h2>
-              <p>At Dima, we believe shopping should be easy, enjoyable, and accessible to everyone. Founded in 2015, our mission is to provide a wide range of high-quality products across all categories, from electronics and home goods to fashion and more.</p>
+              <p>At Dima, we believe shopping should be easy, enjoyable, and accessible to everyone in Kenya. Founded in 2015, our mission is to provide a wide range of high-quality products across all categories, from electronics and home goods to fashion and more.</p>
               <p>We work directly with trusted manufacturers and suppliers to bring you the best products at competitive prices, with fast shipping and excellent customer service for a seamless shopping experience.</p>
               <Link to="/about" className="about-link">Learn More About Us</Link>
             </div>
@@ -128,7 +147,7 @@ const Landing = () => {
           <div className="footer-content">
             <div className="footer-section">
               <h3>Contact Us</h3>
-              <p>Email: support@dima.com</p>
+              <p>Email: support@dima.co.ke</p>
               <p>Phone: +254740-620-057</p>
               <p>Address: 68921, Upperhill, Nairobi</p>
             </div>
@@ -161,7 +180,7 @@ const Landing = () => {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>© {new Date().getFullYear()} Dima E-commerce. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Dima E-commerce Kenya. All rights reserved.</p>
           </div>
         </div>
       </footer>

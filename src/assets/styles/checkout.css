@@ -1,0 +1,145 @@
+/* Checkout.css */
+:root {
+    --primary-color: #e5ab5f;
+    --primary-color-light: #f5d9af;
+    --primary-color-dark: #c48b3f;
+    --secondary-color: #072240;
+    --secondary-color-light: #1e3f5e;
+    --background-color: #ffffff;
+    --background-color-alt: #f8f8f8;
+    --border-color: #eee;
+    --text-color: #333333;
+    --text-color-light: #777;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Base Layout */
+  .checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--text-color);
+  }
+  
+  .checkout-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    font-size: 1.2rem;
+    color: var(--text-color-light);
+  }
+  
+  .checkout-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+  
+  .checkout-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .checkout-content {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Progress Bar */
+  .checkout-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+  
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100px;
+  }
+  
+  .step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    color: var(--text-color-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+  }
+  
+  .step-name {
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+  }
+  
+  .progress-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: var(--border-color);
+  }
+  
+  .progress-step.active .step-number {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .progress-step.active .step-name {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+  
+  /* Form Styles */
+  .checkout-form {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+  }
+  
+  .checkout-form h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+  }
