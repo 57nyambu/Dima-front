@@ -1,0 +1,145 @@
+/* Navbar styling */
+.navbar {
+  background-color: #0b284c;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 70px;
+}
+
+/* Logo styling */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo a {
+  text-decoration: none;
+}
+
+.navbar-logo h1 {
+  color: #e5ab5f;
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Menu styling */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar-item {
+  margin: 0 10px;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.navbar-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Special styling for signup link */
+.signup-link {
+  color: #0b284c;
+  background-color: #e5ab5f;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.signup-link:hover {
+  background-color: #c98f4a;
+  color: white;
+}
+
+/* Logout button styling */
+.logout-button {
+  background: none;
+  border: 1px solid #e5ab5f;
+  color: #e5ab5f;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #e5ab5f;
+  color: #0b284c;
+}
+
+/* Mobile menu icon (hidden on desktop) */
+.mobile-menu-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.mobile-menu-icon span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #e5ab5f;
+  border-radius: 3px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: #0b284c;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar-menu.active {
+    display: flex;
+  }
+  
+  .navbar-item {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .navbar-link, .signup-link, .logout-button {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+  }
+  
+  .mobile-menu-icon {
+    display: flex;
+  }
+}
