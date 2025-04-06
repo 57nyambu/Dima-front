@@ -1,75 +1,85 @@
 /* Checkout.css */
-:root {
-    --primary-color: #e5ab5f;
+/* Updated Root Variables for Better Color Balance */
+.checkout-container, .order-summary {
+    --primary-color: #e5ab5f; /* Gold-like color */
     --primary-color-light: #f5d9af;
     --primary-color-dark: #c48b3f;
-    --secondary-color: #072240;
-    --secondary-color-light: #1e3f5e;
-    --background-color: #ffffff;
-    --background-color-alt: #f8f8f8;
-    --border-color: #eee;
-    --text-color: #333333;
-    --text-color-light: #777;
+    --secondary-color: #072240; /* Deep blue */
+    --secondary-color-light: #1e3f5e; /* Lighter blue */
+    --background-color: #f9f9f9; /* Slightly off-white */
+    --background-color-alt: #f1f1f1; /* Light gray */
+    --border-color: #d1d1d1; /* Neutral border */
+    --text-color: #333333; /* Dark gray for text */
+    --text-color-light: #555555; /* Medium gray for lighter text */
+    --teal-color: #008080; /* Teal for accents */
     --error-color: #e74c3c;
     --success-color: #2ecc71;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  /* Base Layout */
-  .checkout-container {
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Softer shadow */
+}
+
+/* Base Layout */
+.checkout-container {
     max-width: 1200px;
     margin: 0 auto;
+    background-color: var(--background-color-alt); /* Light gray background */
+    border-radius: 8px;
     padding: 2rem 1rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--text-color);
-  }
-  
-  .checkout-loading {
+    box-shadow: var(--shadow);
+}
+
+.checkout-loading {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 300px;
     font-size: 1.2rem;
     color: var(--text-color-light);
-  }
-  
-  .checkout-title {
+}
+
+.checkout-title {
     text-align: center;
     margin-bottom: 2rem;
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Use deep blue for headings */
     font-weight: 600;
-  }
-  
-  .checkout-content {
+}
+
+.checkout-content {
     display: grid;
     grid-template-columns: 1fr 350px;
     gap: 2rem;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .checkout-content {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
-  }
-  
-  /* Progress Bar */
-  .checkout-progress {
+}
+
+/* Progress Bar */
+.checkout-progress {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 800px;
     margin: 0 auto 3rem;
-  }
-  
-  .progress-step {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.progress-step {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
     width: 100px;
-  }
-  
-  .step-number {
+    color: var(--text-color-light);
+}
+
+.step-number {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -79,67 +89,211 @@
     justify-content: center;
     align-items: center;
     font-weight: 600;
-  }
-  
-  .step-name {
+}
+
+.step-name {
     font-size: 0.9rem;
     color: var(--text-color-light);
-  }
-  
-  .progress-line {
+}
+
+.progress-line {
     flex-grow: 1;
     height: 2px;
     background-color: var(--border-color);
-  }
-  
-  .progress-step.active .step-number {
-    background-color: var(--primary-color);
+}
+
+.progress-step.active .step-number {
+    background-color: var(--secondary-color); /* Use deep blue for active steps */
     color: #fff;
-  }
-  
-  .progress-step.active .step-name {
-    color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-step.active .step-name {
+    color: var(--secondary-color-light); /* Use lighter blue for step names */
     font-weight: 600;
-  }
-  
-  /* Form Styles */
-  .checkout-form {
+}
+
+/* Form Styles */
+.checkout-form {
     background-color: var(--background-color);
     border-radius: 8px;
     padding: 2rem;
     box-shadow: var(--shadow);
-  }
-  
-  .checkout-form h2 {
+}
+
+.checkout-form h2 {
     margin-top: 0;
     margin-bottom: 1.5rem;
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Use deep blue for form headings */
     font-weight: 600;
-  }
-  
-  .form-row {
+    border-bottom: 2px solid var(--secondary-color-light); /* Lighter blue underline */
+    padding-bottom: 0.5rem;
+}
+
+.checkout-buttons button {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 1rem;
+    background-color: var(--secondary-color-light); /* Use lighter blue for buttons */
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.checkout-buttons button:hover {
+    background-color: var(--secondary-color); /* Deep blue on hover */
+}
+
+.form-row {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 1.5rem;
     flex: 1;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 1rem;
-  }
+}
+
+/* Order Summary Styles */
+.order-summary {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    color: var(--text-color);
+    font-family: inherit;
+}
+
+.order-summary h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color); /* Use deep blue for headings */
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 2px solid var(--secondary-color-light); /* Lighter blue underline */
+    padding-bottom: 0.5rem;
+}
+
+.summary-items {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.item-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.item-quantity {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.item-name {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.item-price {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.summary-totals {
+    margin-top: 1.5rem;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.summary-line span {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.summary-line.total {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.summary-line.total span:last-child {
+    color: var(--primary-color);
+}
+
+/* Add hover effect for item rows */
+.summary-item:hover {
+    background-color: var(--background-color-alt);
+    border-radius: 4px;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Review Section */
+.review-section h3 {
+    color: var(--secondary-color); /* Use deep blue for section headings */
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.review-item p {
+    color: var(--text-color-light); /* Use medium gray for text */
+}
+
+/* Confirmation Section */
+.order-confirmation {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.order-confirmation h2 {
+    color: var(--success-color); /* Use green for success messages */
+    font-weight: 600;
+}
+
+.confirmation-message {
+    color: var(--text-color-light); /* Use medium gray for text */
+}

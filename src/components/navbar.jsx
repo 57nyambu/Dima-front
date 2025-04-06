@@ -26,7 +26,7 @@ function Navbar() {
           </Link>
         </div>
 
-        <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
+        <div className={`mobile-menu-icon ${mobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
           <span></span>
           <span></span>
           <span></span>
@@ -57,7 +57,7 @@ function Navbar() {
           {token ? (
             <>
               <li className="navbar-item">
-                <Link to="/account/dashboard" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/account-settings" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
                   Account
                 </Link>
               </li>

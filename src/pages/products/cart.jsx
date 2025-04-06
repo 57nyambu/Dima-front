@@ -41,7 +41,7 @@ const Cart = () => {
       {cartItems.length === 0 ? (
         <div className="cart-empty">
           <p>Your cart is empty.</p>
-          <Link to="/shop" className="continue-shopping">Continue Shopping</Link>
+          <Link to="/" className="continue-shopping">Continue Shopping</Link>
         </div>
       ) : (
         <>
@@ -98,7 +98,13 @@ const Cart = () => {
               <Link to="/" className="continue-shopping">
                 Continue Shopping
               </Link>
-              <Link to="/checkout" className="checkout-btn">
+              <Link
+                to={{
+                  pathname: "/checkout",
+                }}
+                state={{ cartItems }}
+                className="checkout-btn"
+              >
                 Proceed to Checkout
               </Link>
             </div>

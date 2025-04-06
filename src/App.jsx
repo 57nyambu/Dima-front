@@ -8,6 +8,7 @@ import Landing from "./pages/general/landing";
 import Home from "./pages/general/home";
 import About from "./pages/general/about";
 import Contact from "./pages/general/contact";
+import ComingSoon from "./pages/utils/comingsoon"; // Import ComingSoon component
 
 // Authentication Pages
 import Login from "./pages/accounts/login";
@@ -26,6 +27,7 @@ import PaymentForm from "./pages/products/paymentform";
 import ShippingForm from "./pages/products/shipping";
 
 // User Account Pages (Protected)
+import AccountDashboard from "./pages/accounts/accounts";
 import Dashboard from "./pages/accounts/dashboard";
 import Orders from "./pages/accounts/orders";
 import Wishlist from "./pages/accounts/wishlist";
@@ -45,6 +47,7 @@ function App() {
         <Navbar />
         <Routes>
           {/* Public Routes */}
+          <Route path="/coming-soon" element={<ComingSoon />} />
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -69,6 +72,7 @@ function App() {
 
           {/* User Protected Routes */}
           <Route element={<ProtectedRoute />}>
+            <Route path="/account-settings" element={<AccountDashboard />} />
             <Route path="/accounts/dashboard" element={<Dashboard />} />
             <Route path="/accounts/orders" element={<Orders />} />
             <Route path="/accounts/wishlist" element={<Wishlist />} />
