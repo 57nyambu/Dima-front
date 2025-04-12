@@ -94,7 +94,7 @@
 
 /* Search Section */
 .search-section {
-  background-color: #f5f5f5;
+  background-color: #f0f4f8; /* Light gray-blue for contrast */
   padding: 30px 0;
 }
 
@@ -129,6 +129,7 @@
 
 /* Featured Products Section */
 .featured-section {
+  background-color: #ffffff; /* Keep white for product focus */
   padding: 80px 0;
 }
 
@@ -222,7 +223,7 @@
 
 /* Categories Section */
 .categories-section {
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; /* Light gray for subtle contrast */
   padding: 80px 0;
 }
 
@@ -244,17 +245,16 @@
 }
 
 .category-card img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  border: 3px solid #e5ab5f;
-  transition: border-color 0.3s ease;
+  width: 100%; /* Ensure the image takes the full width of its container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container */
+  /*border-radius: 8px; */
+  aspect-ratio: 4 / 3; /* Industry-standard aspect ratio for rectangular images */
+  transition: transform 0.3s ease; /* Add hover effect */
 }
 
 .category-card:hover img {
-  border-color: #0b284c;
+  transform: scale(1); /* Slight zoom effect on hover */
 }
 
 .category-card h3 {
@@ -264,6 +264,7 @@
 
 /* About Section */
 .about-section {
+  background-color: #eef2f5; /* Very light blue for a calm feel */
   padding: 80px 0;
 }
 
@@ -303,9 +304,27 @@
 
 /* Footer */
 .main-footer {
-  background-color: #0b284c;
+  background-color: #0b284c; /* Dark blue for strong contrast */
   color: white;
   padding: 60px 0 20px;
+}
+
+/* Footer Section */
+.footer-section h3 {
+  color: #e5ab5f;
+  margin-bottom: 20px;
+  font-size: 18px;
+  position: relative;
+  text-align: left; /* Ensure alignment matches the text */
+}
+
+.footer-section h3::after {
+  content: '';
+  display: block;
+  width: 100%; /* Make the underline span the full width of the text */
+  height: 2px;
+  background-color: #e5ab5f;
+  margin-top: 10px;
 }
 
 /* Footer (continued) */
@@ -314,22 +333,6 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 40px;
   margin-bottom: 40px;
-}
-
-.footer-section h3 {
-  color: #e5ab5f;
-  margin-bottom: 20px;
-  font-size: 18px;
-  position: relative;
-}
-
-.footer-section h3::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 2px;
-  background-color: #e5ab5f;
-  margin-top: 10px;
 }
 
 .footer-section p {
@@ -386,6 +389,7 @@
 }
 
 .footer-bottom {
+  background-color: #09203a; /* Slightly darker footer bottom */
   text-align: center;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -394,6 +398,186 @@
 .footer-bottom p {
   font-size: 14px;
   color: #ccc;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #181818; /* Neutral dark background */
+  color: #e0e0e0; /* Light text for readability */
+}
+
+.dark-mode .hero-section {
+  background: linear-gradient(#242424, #181818); /* Smooth dark gradient */
+  color: #ffffff; /* Bright text for contrast */
+}
+
+.dark-mode .search-section {
+  background-color: #202020; /* Slightly lighter dark background */
+  border-top: 1px solid #333333; /* Subtle border for separation */
+  border-bottom: 1px solid #333333;
+}
+
+.dark-mode .featured-section {
+  background-color: #1f1f1f; /* Darker background for product focus */
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+}
+
+.dark-mode .categories-section {
+  background-color: #202020; /* Slightly lighter dark background */
+}
+
+.dark-mode .about-section {
+  background-color: #1f1f1f; /* Darker background for about section */
+}
+
+.dark-mode .main-footer {
+  background-color: #121212; /* Very dark footer */
+  color: #b0b0b0; /* Softer light text */
+}
+
+.dark-mode .footer-bottom {
+  background-color: #0f0f0f; /* Slightly darker footer bottom */
+  color: #888888; /* Muted text for footer bottom */
+}
+
+.dark-mode .primary-button {
+  background-color: #333333; /* Neutral dark button */
+  color: #ffffff; /* Bright text */
+  border: 2px solid #444444; /* Subtle border */
+}
+
+.dark-mode .primary-button:hover {
+  background-color: #444444; /* Slightly lighter on hover */
+}
+
+.dark-mode .secondary-button {
+  background-color: transparent;
+  color: #e0e0e0;
+  border: 2px solid #e0e0e0;
+}
+
+.dark-mode .secondary-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .product-card {
+  background-color: #202020; /* Neutral dark background for cards */
+  border: 1px solid #333333; /* Subtle border */
+}
+
+.dark-mode .product-card:hover {
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Light shadow */
+}
+
+.dark-mode .category-card {
+  background-color: #202020; /* Neutral dark background for category cards */
+  border: 1px solid #333333;
+}
+
+.dark-mode .category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .search-input {
+  background-color: #333333; /* Dark input background */
+  color: #e0e0e0; /* Light text */
+  border: 1px solid #444444; /* Subtle border */
+}
+
+.dark-mode .search-input::placeholder {
+  color: #888888; /* Muted placeholder text */
+}
+
+.dark-mode .search-button {
+  background-color: #444444; /* Dark button */
+  color: #ffffff; /* Bright text */
+}
+
+.dark-mode .search-button:hover {
+  background-color: #555555; /* Slightly lighter on hover */
+}
+
+.dark-mode .newsletter-input {
+  background-color: #333333; /* Dark input background */
+  color: #e0e0e0; /* Light text */
+  border: 1px solid #444444; /* Subtle border */
+}
+
+.dark-mode .newsletter-button {
+  background-color: #444444; /* Dark button */
+  color: #ffffff; /* Bright text */
+}
+
+.dark-mode .newsletter-button:hover {
+  background-color: #555555; /* Slightly lighter on hover */
+}
+
+.dark-mode a {
+  color: #e5ab5f; /* Accent color for links */
+  text-decoration: none;
+}
+
+.dark-mode a:hover {
+  color: #f7c97f; /* Lighter accent on hover */
+}
+
+.dark-mode-toggle {
+  padding: 10px 20px;
+  background-color: #0b284c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  background-color: #09203a;
+}
+
+/* Dark Mode Styles */
+.landing-page.dark-mode {
+  background-color: #181818; /* Neutral dark background */
+  color: #e0e0e0; /* Light text for readability */
+}
+
+.landing-page.dark-mode .hero-section {
+  background: linear-gradient(#242424, #181818); /* Smooth dark gradient */
+  color: #ffffff; /* Bright text for contrast */
+}
+
+.landing-page.dark-mode .search-section {
+  background-color: #202020; /* Slightly lighter dark background */
+  border-top: 1px solid #333333; /* Subtle border for separation */
+  border-bottom: 1px solid #333333;
+}
+
+.landing-page.dark-mode .featured-section {
+  background-color: #1f1f1f; /* Darker background for product focus */
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+}
+
+.landing-page.dark-mode .categories-section {
+  background-color: #202020; /* Slightly lighter dark background */
+}
+
+.landing-page.dark-mode .about-section {
+  background-color: #1f1f1f; /* Darker background for about section */
+}
+
+.landing-page.dark-mode .main-footer {
+  background-color: #121212; /* Very dark footer */
+  color: #b0b0b0; /* Softer light text */
+}
+
+.landing-page.dark-mode .footer-bottom {
+  background-color: #0f0f0f; /* Slightly darker footer bottom */
+  color: #888888; /* Muted text for footer bottom */
 }
 
 /* Responsive styles */
@@ -439,7 +623,7 @@
   }
   
   .categories-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust grid for smaller screens */
   }
   
   .newsletter-form {
@@ -471,6 +655,6 @@
   }
   
   .categories-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Further adjust for very small screens */
   }
 }

@@ -437,7 +437,7 @@
     position: relative;
     display: inline-block;
     width: 50px;
-    height: 26px;
+    height: 24px;
   }
   
   .toggle-switch input {
@@ -446,7 +446,7 @@
     height: 0;
   }
   
-  .slider {
+  .toggle-switch .slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -454,32 +454,28 @@
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
+    border-radius: 24px;
+    transition: 0.4s;
   }
   
-  .slider:before {
+  .toggle-switch .slider:before {
     position: absolute;
     content: "";
     height: 18px;
     width: 18px;
-    left: 4px;
-    bottom: 4px;
+    left: 3px;
+    bottom: 3px;
     background-color: white;
-    transition: .4s;
     border-radius: 50%;
+    transition: 0.4s;
   }
   
-  input:checked + .slider {
-    background-color: #d49a4b;
+  .toggle-switch input:checked + .slider {
+    background-color: #4b7bec; /* Blue for active state */
   }
   
-  input:focus + .slider {
-    box-shadow: 0 0 1px #d49a4b;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(24px);
+  .toggle-switch input:checked + .slider:before {
+    transform: translateX(26px);
   }
   
   /* Button Styles */
@@ -574,3 +570,265 @@
       grid-template-columns: 1fr;
     }
   }
+
+/* Dark Mode Styles */
+.dark-mode .account-container {
+  background-color: #1a1a1a; /* Slightly lighter dark background */
+  color: #e0e0e0; /* Light text for readability */
+}
+.dark-mode h3, p, h4 {
+  color: #fcfcfc;
+}
+
+.dark-mode .account-sidebar {
+  background-color: #242424; /* Dark sidebar background */
+  color: #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .account-sidebar h2 {
+  color: #f5f5f5; /* Bright text for the sidebar title */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .sidebar-menu li {
+  color: #e0e0e0;
+}
+
+.dark-mode .sidebar-menu li:hover {
+  background-color: rgba(75, 123, 236, 0.2); /* Soft blue hover effect */
+  color: #4b7bec; /* Soft blue text */
+}
+
+.dark-mode .sidebar-menu li.active {
+  background-color: rgba(75, 123, 236, 0.3); /* Soft blue active state */
+  color: #4b7bec;
+  border-left: 3px solid #4b7bec;
+}
+
+.dark-mode .account-content {
+  background-color: #1f1f1f; /* Darker background for the content area */
+  color: #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .section-header {
+  background-color: #242424; /* Dark background for section headers */
+  color: #f5f5f5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .profile-info,
+.dark-mode .password-section,
+.dark-mode .profile-form,
+.dark-mode .order-filters,
+.dark-mode .orders-list,
+.dark-mode .addresses-list,
+.dark-mode .payment-methods-list,
+.dark-mode .security-section {
+  background-color: #242424; /* Dark background for sections */
+  color: #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .info-label {
+  color: #aaaaaa; /* Muted text for labels */
+}
+
+.dark-mode .info-value {
+  color: #f5f5f5; /* Bright text for values */
+}
+
+.dark-mode .form-group input {
+  background-color: #333333; /* Dark input background */
+  color: #e0e0e0; /* Light text */
+  border: 1px solid #444444; /* Subtle border */
+}
+
+.dark-mode .form-group input:focus {
+  border-color: #4b7bec; /* Soft blue focus border */
+  box-shadow: 0 0 0 2px rgba(75, 123, 236, 0.2);
+}
+
+.dark-mode .order-card {
+  background-color: #242424; /* Dark background for order cards */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .order-header {
+  background-color: #333333; /* Dark background for order headers */
+}
+
+.dark-mode .order-status.delivered {
+  background-color: rgba(75, 181, 67, 0.2); /* Green for delivered */
+  color: #4bb543;
+}
+
+.dark-mode .order-status.shipped {
+  background-color: rgba(75, 123, 236, 0.2); /* Blue for shipped */
+  color: #4b7bec;
+}
+
+.dark-mode .address-card,
+.dark-mode .payment-card {
+  background-color: #242424; /* Dark background for cards */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .address-tag,
+.dark-mode .payment-tag {
+  background-color: #4b7bec; /* Soft blue for tags */
+  color: #ffffff;
+}
+
+.dark-mode .toggle-switch .slider {
+  background-color: #444444; /* Dark slider background */
+}
+
+.dark-mode .toggle-switch input:checked + .slider {
+  background-color: #4b7bec; /* Soft blue for active slider */
+}
+
+.dark-mode .primary-btn,
+.dark-mode .save-btn {
+  background-color: #4b7bec; /* Soft blue for primary buttons */
+  color: #ffffff;
+}
+
+.dark-mode .primary-btn:hover,
+.dark-mode .save-btn:hover {
+  background-color: #3a6ecf; /* Slightly darker blue on hover */
+}
+
+.dark-mode .edit-btn,
+.dark-mode .secondary-btn {
+  background-color: #333333; /* Dark button background */
+  color: #ffffff;
+}
+
+.dark-mode .edit-btn:hover,
+.dark-mode .secondary-btn:hover {
+  background-color: #444444;
+}
+
+.dark-mode .cancel-btn {
+  background-color: transparent;
+  color: #aaaaaa;
+  border: 1px solid #444444;
+}
+
+.dark-mode .cancel-btn:hover {
+  background-color: #333333;
+}
+
+.dark-mode .text-btn {
+  color: #4b7bec; /* Soft blue for text buttons */
+}
+
+.dark-mode .danger-btn {
+  background-color: #f44336; /* Red for danger buttons */
+  color: #ffffff;
+}
+
+.dark-mode .danger-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Settings Section */
+.settings-section {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.settings-section h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.theme-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theme-text h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.theme-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 24px;
+  transition: 0.4s;
+}
+
+.toggle-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.toggle-switch input:checked + .slider {
+  background-color: #4b7bec; /* Blue for active state */
+}
+
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Theme Icons */
+.theme-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: #fff;
+}
+
+.light-icon {
+  content: url('https://cdn-icons-png.flaticon.com/512/169/169367.png'); /* Light mode icon */
+}
+
+.dark-icon {
+  content: url('https://cdn-icons-png.flaticon.com/512/169/169371.png'); /* Dark mode icon */
+}
+
+.blue-icon {
+  content: url('https://cdn-icons-png.flaticon.com/512/169/169372.png'); /* Blue mode icon */
+}

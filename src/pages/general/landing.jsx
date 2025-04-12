@@ -1,10 +1,25 @@
-import { Link, useNavigate } from "react-router-dom"; // Add useNavigate import
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../../assets/styles/landing.css";
 
 const Landing = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Automatically detect system theme and apply it
+  useEffect(() => {
+    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setIsDarkMode(prefersDarkMode);
+    document.body.classList.toggle("dark-mode", prefersDarkMode);
+  }, []);
+
+  // Toggle dark mode manually
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    document.body.classList.toggle("dark-mode", newMode);
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -42,16 +57,20 @@ const Landing = () => {
 
   // Sample categories for general e-commerce
   const categories = [
-    { id: 1, name: "Electronics", image: "/api/placeholder/150/150" },
-    { id: 2, name: "Home & Kitchen", image: "/api/placeholder/150/150" },
-    { id: 3, name: "Fashion", image: "/api/placeholder/150/150" },
+    { id: 1, name: "Electronics", image: "/images/electronics.jpg" },
+    { id: 2, name: "Home & Kitchen", image: "/images/home_appliances.jpg" },
+    { id: 3, name: "Fashion", image: "/images/fashion.jpg" },
     { id: 4, name: "Sports & Outdoors", image: "/api/placeholder/150/150" },
-    { id: 5, name: "Beauty & Personal Care", image: "/api/placeholder/150/150" },
-    { id: 6, name: "Toys & Games", image: "/api/placeholder/150/150" }
+    { id: 5, name: "Beauty & Personal Care", image: "/images/beauty.jpg" },
+    { id: 6, name: "Toys & Games", image: "/images/toys.jpg" },
   ];
 
   return (
-    <div className="landing-page">
+    <div className={`landing-page ${isDarkMode ? "dark-mode" : ""}`}>
+      {/*<button onClick={toggleDarkMode} className="dark-mode-toggle">
+        {isDarkMode ? "Light Mode" : "Dark Mode"}
+      </button>*/}
+
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
@@ -155,7 +174,7 @@ const Landing = () => {
               <h3>Quick Links</h3>
               <ul>
                 <li><Link to="/products">All Products</Link></li>
-                <li><Link to="/deals">Today's Deals</Link></li>
+                <li><Link to="/coming-soon">Today's Deals</Link></li>
                 <li><Link to="/about">About Us</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
                 <li><Link onClick={handleLogout}>Logout</Link></li>
@@ -165,7 +184,7 @@ const Landing = () => {
               <h3>Customer Service</h3>
               <ul>
                 <li><Link to="/shipping">Shipping & Delivery</Link></li>
-                <li><Link to="/returns">Returns & Refunds</Link></li>
+                <li><Link to="/coming-soon">Returns & Refunds</Link></li>
                 <li><Link to="/faq">FAQ</Link></li>
                 <li><Link to="/privacy">Privacy Policy</Link></li>
               </ul>

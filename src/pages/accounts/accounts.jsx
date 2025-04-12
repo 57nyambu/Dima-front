@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../assets/styles/accounts.css";
 
@@ -14,6 +14,28 @@ function AccountDashboard() {
   
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState(personalInfo);
+  const [isDarkMode, setIsDarkMode] = useState(false); // State for dark mode
+
+  // Automatically detect system theme and apply it
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === "dark");
+      document.body.classList.toggle("dark-mode", savedTheme === "dark");
+    } else {
+      const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setIsDarkMode(prefersDarkMode);
+      document.body.classList.toggle("dark-mode", prefersDarkMode);
+    }
+  }, []);
+
+  // Toggle dark mode manually
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem("theme", newMode ? "dark" : "light");
+    document.body.classList.toggle("dark-mode", newMode);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,6 +92,12 @@ function AccountDashboard() {
             onClick={() => setActiveTab("security")}
           >
             Security
+          </li>
+          <li 
+            className={activeTab === "settings" ? "active" : ""} 
+            onClick={() => setActiveTab("settings")}
+          >
+            Settings
           </li>
           <li className="logout-option" onClick={handleLogout}>
             Logout
@@ -335,6 +363,26 @@ function AccountDashboard() {
             
             <div className="security-actions">
               <button className="danger-btn">Delete Account</button>
+            </div>
+          </div>
+        )}
+
+        {activeTab === "settings" && (
+          <div className="settings-section">
+            <h3>Settings</h3>
+            <div className="theme-toggle">
+              <div className="theme-text">
+                <h4>Theme</h4>
+                <p>Switch between Light and Dark modes</p>
+              </div>
+              <label className="toggle-switch">
+                <input
+                  type="checkbox"
+                  onChange={toggleDarkMode}
+                  checked={isDarkMode}
+                />
+                <span className="slider"></span>
+              </label>
             </div>
           </div>
         )}

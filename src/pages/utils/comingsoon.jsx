@@ -1,6 +1,6 @@
 // ComingSoon.jsx
 import React from 'react';
-import '../../assets/styles/ComingSoon.css';
+import '../../assets/styles/comingsoon.css';
 
 const ComingSoon = () => {
     return (
@@ -10,7 +10,7 @@ const ComingSoon = () => {
         <main className="main-content">
           <div className="feature-announcement">
             <div className="announcement-content">
-              <h2>This Experience is<br /><span className="highlight">Coming Soon</span></h2>
+              <h2>This Feature is<br /><span className="highlight">Coming Soon</span></h2>
               <p className="feature-description">We're crafting something amazing for our Kenyan shoppers. This feature will be available shortly.</p>
               <p className="thank-you">Thank you for your patience as we perfect your shopping experience.</p>
               
