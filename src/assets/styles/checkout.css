@@ -297,3 +297,75 @@
 .confirmation-message {
     color: var(--text-color-light); /* Use medium gray for text */
 }
+
+/* Payment Method Review Section */
+.review-section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .section-title {
+    color: #072240;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .payment-method-display {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .method-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .method-header svg {
+    flex-shrink: 0;
+  }
+  
+  /* M-Pesa Specific Styles */
+  .payment-method-display.mpesa {
+    background: #f8fff8;
+    border: 1px solid #e0f0e0;
+    border-radius: 6px;
+    padding: 1rem;
+  }
+  
+  .mpesa-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .mpesa-number {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  
+  .mpesa-number .number {
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: #007600;
+    font-weight: 600;
+    margin-top: 0.25rem;
+  }
+  
+  /* Credit Card/PayPal Styles */
+  .payment-method-display.credit-card {
+    color: #1A237E;
+  }
+  
+  .payment-method-display.paypal {
+    color: #003087;
+  }

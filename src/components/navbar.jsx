@@ -10,7 +10,7 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("role");
-    navigate("/login");
+    navigate("/");
   };
 
   const toggleMobileMenu = () => {
@@ -40,7 +40,7 @@ function Navbar() {
           </li>
           <li className="navbar-item">
             <Link to="/cart" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
-              Cart
+              Cart 
             </Link>
           </li>
           <li className="navbar-item">

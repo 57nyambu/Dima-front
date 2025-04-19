@@ -136,7 +136,7 @@ const Landing = () => {
             {categories.map(category => (
               <Link to={`/category/${category.id}`} key={category.id} className="category-card">
                 <img src={category.image} alt={category.name} />
-                <h3>{category.name}</h3>
+                <p>{category.name}</p>
               </Link>
             ))}
           </div>
@@ -152,9 +152,6 @@ const Landing = () => {
               <p>At Dima, we believe shopping should be easy, enjoyable, and accessible to everyone in Kenya. Founded in 2015, our mission is to provide a wide range of high-quality products across all categories, from electronics and home goods to fashion and more.</p>
               <p>We work directly with trusted manufacturers and suppliers to bring you the best products at competitive prices, with fast shipping and excellent customer service for a seamless shopping experience.</p>
               <Link to="/about" className="about-link">Learn More About Us</Link>
-            </div>
-            <div className="about-image">
-              <img src="/api/placeholder/400/300" alt="About Dima" />
             </div>
           </div>
         </div>

@@ -7,6 +7,20 @@
   line-height: 1.6;
 }
 
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+h2, h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -402,12 +416,23 @@
 
 /* Dark Mode Styles */
 .dark-mode {
-  background-color: #181818; /* Neutral dark background */
+  background-color: #181818;  /*Neutral dark background */
   color: #e0e0e0; /* Light text for readability */
+}
+.dark-mode h2 {
+  font-size: 24px;
+  color: #ebebeb;
+  margin-bottom: 20px;
+}
+.dark-mode p {
+  color: #ebebeb; /* Softer light text for paragraphs */
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 .dark-mode .hero-section {
-  background: linear-gradient(#242424, #181818); /* Smooth dark gradient */
+  /*background: linear-gradient(#242424, #181818);  Smooth dark gradient */
+  background: linear-gradient(#07142b, #102147);
   color: #ffffff; /* Bright text for contrast */
 }
 
@@ -563,7 +588,7 @@
 }
 
 .landing-page.dark-mode .categories-section {
-  background-color: #202020; /* Slightly lighter dark background */
+  background-color: #1c1f30; /* Slightly lighter dark background */
 }
 
 .landing-page.dark-mode .about-section {
@@ -642,6 +667,26 @@
 }
 
 @media (max-width: 576px) {
+  .h1 {
+    font-size: 24px;
+  }
+  .h2 {
+    font-size: 20px;
+  }
+  .h3 {
+    font-size: 18px;
+  }
+  .hero-section {
+    padding: 60px 20px;
+  }
+  .p {
+    font-size: 16px;
+  }
+  .category-card {
+    font-size: 14px; 
+    max-width: 140px;
+    max-height: fit-content;
+  }
   .hero-content h1 {
     font-size: 28px;
   }
@@ -655,6 +700,6 @@
   }
   
   .categories-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Further adjust for very small screens */
+    grid-template-columns: repeat(2, 1fr); /* Single column for very small screens */
   }
 }
