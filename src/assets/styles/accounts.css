@@ -576,7 +576,7 @@
   background-color: #1a1a1a; /* Slightly lighter dark background */
   color: #e0e0e0; /* Light text for readability */
 }
-.dark-mode h3, p, h4 {
+.dark-mode .account-container h3, p, h4 {
   color: #fcfcfc;
 }
 

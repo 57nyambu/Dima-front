@@ -1,5 +1,5 @@
 /* About Page Styles */
-:root {
+.about-container {
     --primary-color: #0b284c;
     --primary-dark: #081d38;
     --primary-light: #1a3a5e;
@@ -29,6 +29,20 @@
   
   * {
     box-sizing: border-box;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+  
+  h2, h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
   }
   
   /* Container Styles */
@@ -373,3 +387,48 @@
       margin-bottom: 1rem;
     }
   }
+ @media (max-width: 576px) {
+    .about-header {
+      padding: 1.5rem 1rem;
+    }
+    
+    .header-content {
+      padding: 2rem 1rem;
+    }
+    
+    .about-title {
+      font-size: 2rem;
+    }
+    
+    .about-subtitle {
+      font-size: 1rem;
+    }
+    
+    .section-title {
+      font-size: 1.25rem;
+    }
+    
+    .feature-item {
+      padding: 1.25rem;
+    }
+    
+    .feature-title {
+      font-size: 1.05rem;
+    }
+    
+    .feature-details {
+      font-size: 0.85rem;
+    }
+    
+    .audience-item {
+      padding: 1.25rem;
+    }
+    
+    .audience-title {
+      font-size: 1.15rem;
+    }
+    
+    .audience-text {
+      font-size: 0.85rem;
+    }
+ }
