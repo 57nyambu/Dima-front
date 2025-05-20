@@ -30,7 +30,7 @@ const Landing = () => {
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("role");
-    navigate("/");
+    navigate("/login");
   };
 
   const handleAddToCart = (product) => {
