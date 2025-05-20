@@ -18,7 +18,7 @@ import ForgotPassword from "./pages/accounts/forgot-password";
 // Product Pages
 import Products from "./pages/products/products";
 import ProductCategoryForm from "./pages/products/prodcateg";
-import ProductDetails from "./pages/products/productdetails";
+import ProductDetailPage from "./pages/products/product-detail";
 import SearchResults from "./pages/products/searchresults";
 import Cart from "./pages/products/cart";
 import Checkout from "./pages/products/checkout";
@@ -56,7 +56,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/products/:slug" element={<ProductDetails />} />
+          <Route path="/products/:slug" element={<ProductDetailPage />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
