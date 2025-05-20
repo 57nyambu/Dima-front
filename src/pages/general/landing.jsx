@@ -49,20 +49,22 @@ const Landing = () => {
 
   // Sample featured products data - diversified for general e-commerce
   const featuredProducts = [
-    { id: 1, name: "Smart 4K TV", price: 69999, image: "/api/placeholder/250/200" },
-    { id: 2, name: "Modern Coffee Table", price: 24999, image: "/api/placeholder/250/200" },
-    { id: 3, name: "Wireless Headphones", price: 11999, image: "/api/placeholder/250/200" },
-    { id: 4, name: "Kitchen Blender Set", price: 8999, image: "/api/placeholder/250/200" }
+    { id: 1, name: "Smart 4K TV", price: 69999, image: "/images/smart-tv.jpg", slug: "smart-4k-tv" },
+    { id: 2, name: "Modern Coffee Table", price: 24999, image: "/images/cofee-table.jpeg", slug: "modern-coffee-table" },
+    { id: 3, name: "Wireless Headphones", price: 11999, image: "/images/wireless-headphones.jpeg", slug: "wireless-headphones" },
+    { id: 4, name: "Kitchen Blender Set", price: 8999, image: "/images/kitchen-blender.jpeg", slug: "kitchen-blender-set" }
   ];
 
   // Sample categories for general e-commerce
   const categories = [
-    { id: 1, name: "Electronics", image: "/images/electronics.jpg" },
-    { id: 2, name: "Home & Kitchen", image: "/images/home_appliances.jpg" },
-    { id: 3, name: "Fashion", image: "/images/fashion.jpg" },
-    { id: 4, name: "Sports & Outdoors", image: "/api/placeholder/150/150" },
-    { id: 5, name: "Beauty & Personal Care", image: "/images/beauty.jpg" },
-    { id: 6, name: "Toys & Games", image: "/images/toys.jpg" },
+    { id: 1, name: "Electronics", image: "/images/electronics.jpg", slug: "electronics" },
+    { id: 2, name: "Home & Kitchen", image: "/images/home_appliances.jpg", slug: "home-kitchen" },
+    { id: 3, name: "Fashion", image: "/images/fashion.jpg", slug: "fashion" },
+    { id: 4, name: "Sports & Outdoors", image: "/api/placeholder/150/150", slug: "sports-outdoors" },
+    { id: 5, name: "Beauty & Personal Care", image: "/images/beauty.jpg", slug: "beauty-personal-care" },
+    { id: 6, name: "Toys & Games", image: "/images/toys.jpg", slug: "toys-games" },
+    { id: 7, name: "Books", image: "/images/books.jpg", slug: "books" },
+    { id: 8, name: "Automotive", image: "/images/automotive.jpg", slug: "automotive" }
   ];
 
   return (
@@ -105,21 +107,31 @@ const Landing = () => {
           <h2 className="section-title">Featured Products</h2>
           <div className="products-grid">
             {featuredProducts.map(product => (
-              <div key={product.id} className="product-card">
-                <div className="product-image">
-                  <img src={product.image} alt={product.name} />
+              <Link 
+                to={`/products/${product.slug}`} 
+                key={product.id} 
+                className="product-card-link"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="product-card">
+                  <div className="product-image">
+                    <img src={product.image} alt={product.name} />
+                  </div>
+                  <div className="product-info">
+                    <h3>{product.name}</h3>
+                    <p className="product-price">KES {product.price.toLocaleString()}</p>
+                    <button 
+                      className="product-button" 
+                      onClick={e => {
+                        e.preventDefault();
+                        handleAddToCart(product);
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
-                <div className="product-info">
-                  <h3>{product.name}</h3>
-                  <p className="product-price">KES {product.price.toLocaleString()}</p>
-                  <button 
-                    className="product-button" 
-                    onClick={() => handleAddToCart(product)}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
           <div className="view-all">
@@ -134,7 +146,7 @@ const Landing = () => {
           <h2 className="section-title">Shop by Category</h2>
           <div className="categories-grid">
             {categories.map(category => (
-              <Link to={`/category/${category.id}`} key={category.id} className="category-card">
+              <Link to={`/category/${category.slug}`} key={category.id} className="category-card">
                 <img src={category.image} alt={category.name} />
                 <p>{category.name}</p>
               </Link>

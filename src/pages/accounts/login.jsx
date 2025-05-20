@@ -199,9 +199,9 @@ const LoginPage = () => {
 
             <div className="signup-prompt">
               <p>
-                New customer?{" "}
+                Don't have an account? {" "}
                 <a href="/signup" className="signup-link">
-                  Create an account
+                  Sign up
                 </a>
               </p>
             </div>
